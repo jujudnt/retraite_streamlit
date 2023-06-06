@@ -1,0 +1,8 @@
+pandas
+numpy
+urllib3
+streamlit
+matplotlib
+seaborn
+pydeck
+
