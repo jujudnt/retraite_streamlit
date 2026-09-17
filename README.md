@@ -1,30 +1,52 @@
-# Analyse Démographique et des Retraités en France :older_man::older_woman:
+# Analyse Retraite France
 
-Ce projet Streamlit présente une analyse visuelle de l'évolution de la population et de la répartition des retraités et préretraités en France.
+Application Streamlit d'exploration des donnees demographiques liees aux
+retraites, aux seniors en emploi et aux indicateurs regionaux en France.
 
-## Sommaire
+Le projet part d'un ancien dashboard Streamlit et le remet a jour avec une
+structure plus lisible, des regles retraite actualisees et des tests sur les
+calculs metier.
 
-- Evolution de la population entre 2019 et 2022
-- Analyse du nombre de retraités et préretraités
-- Répartition des retraités et préretraités exerçant un emploi
-- Taux de chômage et d'activité des retraités et préretraités par région
-- Espérance de vie de la population par région
+## Fonctionnalites
+
+- evolution de la population par region ;
+- analyse des retraites et preretraites ;
+- repartition des retraites en emploi ;
+- taux d'activite et de chomage des 50-64 ans ;
+- esperance de vie par region ;
+- synthese des ages legaux et trimestres requis selon les regles applicables a
+  partir du 1er septembre 2026.
 
 ## Installation
 
-Pour installer et exécuter ce projet sur votre système local, suivez les étapes suivantes:
+```bash
+git clone https://github.com/jujudnt/retraite_streamlit.git
+cd retraite_streamlit
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## Tests
 
 ```bash
-# 1. Clonez ce répertoire
-git clone https://github.com/jujudnt/retraite_streamlit.git
+PYTHONPATH=src python3 -m unittest discover -s tests
+```
 
-# 2. Accédez au répertoire cloné
-cd retraite_streamlit
+## Donnees
 
-# 3. Installez les dépendances nécessaires
-pip install -r requirements.txt
+Les pages historiques utilisent un fichier Excel issu de data.gouv.fr. La page
+"Bareme retraite" utilise un jeu de regles maintenu dans le repository pour
+documenter les ages legaux et trimestres requis par generation.
 
-# 4. Exécutez l'application Streamlit
-streamlit run app.py
+Sources principales :
 
+- Assurance retraite, age legal et trimestres requis :
+  https://www.lassuranceretraite.fr/portail-info/home/actif/age-depart/age-depart-retraite.html
+- Assurance retraite, mesures retraite 2026 :
+  https://www.lassuranceretraite.fr/portail-info/hors-menu/actualites-nationales/actif/2025/projet-de-loi-les-mesures-envisa.html
+
+Ce projet est un outil pedagogique d'exploration. Il ne remplace pas une
+estimation personnelle officielle.
 
